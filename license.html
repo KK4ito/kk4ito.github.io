@@ -45,7 +45,7 @@
                                     </a>
                                 </li>
                                 <li class="link">
-                                  <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                  <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
                                     <a href="./changelog.html"
@@ -55,7 +55,7 @@
                                 </li>
                                 <li class="link">
                                     <a href="./license.html"
-                                        >
+                                         class="active" >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -342,7 +342,7 @@
                                            </a>
                                        </li>
                                        <li class="link">
-                                         <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                         <a href="./index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
                                            <a href="./changelog.html"
@@ -352,7 +352,7 @@
                                        </li>
                                        <li class="link">
                                            <a href="./license.html"
-                                               >
+                                                class="active" >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -611,222 +611,23 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="ionic-2-boilerplate">IONIC 2 Boilerplate</h1>
-<h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-<li><a href="#features">Features</a></li>
-<li><a href="#installation">Installation &amp; Configuration</a><ul>
-<li><a href="#pre-install">Pre-Install Commands</a></li>
-<li><a href="#npm-scripts">NPM scripts commands</a></li>
-<li><a href="#gitlab-ci">Gitlab CI Configuration</a></li>
-</ul>
-</li>
-<li><a href="#tips">Tips</a><ul>
-<li><a href="#links">Useful Links</a></li>
-<li><a href="#ionic-cordova">Ionic &amp; Cordova</a></li>
-<li><a href="#webstorm">Webstorm</a></li>
-<li><a href="#docs">Docs</a></li>
-<li><a href="#release">How to release</a></li>
-<li><a href="#more">Additional information</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="-a-name-features-a-features"><a name="features"></a>Features</h2>
-<ul>
-<li>Ionic RC4</li>
-<li><a href="https://github.com/yarnpkg/yarn">Yarn</a> for fast, reliable, and secure dependency management.</li>
-<li><a href="https://github.com/benoror/better-npm-run">BetterScripts</a> for better NPM scripts.</li>
-<li>ENV variables from package.json injected automatically.</li>
-<li>Documentation with <a href="https://github.com/TypeStrong/typedoc/">Typedoc</a>.</li>
-<li>Continuous Integration with Gitlab CI <a href="#gitlab-ci">see here for info</a>.<ul>
-<li>Automatic apk only when pushing to release branch.</li>
-<li>Automatic ipa through ionic package only when pushing to release branch.</li>
-<li>A <a href="https://github.com/marcoturi/ionic-docker">Docker image</a>.</li>
-</ul>
-</li>
-<li>Tests<ul>
-<li>Unit tests with Karma.</li>
-<li>E2E tests with Protractor.</li>
-<li>Screenshot reporter for Protractor.</li>
-</ul>
-</li>
-<li>Linting<ul>
-<li><a href="https://github.com/HugoGiraudel/sass-boilerplate">SCSS Lint</a> following Sass Guidelines.</li>
-<li>TSlint with <a href="https://github.com/mgechev/codelyzer">Codelyzer</a>.</li>
-</ul>
-</li>
-<li>GIT <ul>
-<li>Automatic alignment of app version in config.xml from package.json through cordova hook.</li>
-</ul>
-</li>
-</ul>
-<h2 id="-a-name-installation-a-installation-configuration"><a name="installation"></a>Installation &amp; Configuration</h2>
-<h3 id="-a-name-pre-install-a-pre-install-commands"><a name="pre-install"></a>Pre-Install Commands</h3>
-<pre class="line-numbers"><code class="language-none"># Required dependencies (on Mac also install ios-sim and ios-deploy)
-npm i –g cordova ionic yarn
-gem install scss-lint
-# Clone the repo –depth 1 removes all but one .git commit history
-git clone –depth 1 &lt;&lt;path/to/gitrepo.git&gt;&gt;
-# Change directory
-cd ionic2-boilerplate
-# Install project dependencies
-yarn
-npm run post-install</code></pre><p>Note: you should have ruby 2 installed to run scss-lint.</p>
-<h3 id="-a-name-npm-scripts-a-npm-scripts-commands"><a name="npm-scripts"></a>NPM scripts commands</h3>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Task</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dev</code></td>
-<td>run ionic serve</td>
-</tr>
-<tr>
-<td><code>build</code></td>
-<td>Full production build. Use <code>--dev</code> flag for dev build.</td>
-</tr>
-<tr>
-<td><code>release</code></td>
-<td>generate changelog based on commits</td>
-</tr>
-<tr>
-<td><code>push</code></td>
-<td>shortcut for git push origin master --follow-tags</td>
-</tr>
-<tr>
-<td><code>lint</code></td>
-<td>lint with tslint</td>
-</tr>
-<tr>
-<td><code>scss-lint</code></td>
-<td>lint scss</td>
-</tr>
-<tr>
-<td><code>test</code></td>
-<td>runs Karma test</td>
-</tr>
-<tr>
-<td><code>test:watch</code></td>
-<td>runs Karma test watching for edits (usefull for TDD)</td>
-</tr>
-<tr>
-<td><code>e2e</code></td>
-<td>runs e2e protractor tests</td>
-</tr>
-<tr>
-<td><code>e2e:interactive</code></td>
-<td>runs e2e protractor tests in interactive mode</td>
-</tr>
-<tr>
-<td><code>outdated</code></td>
-<td>search npm packages for outdated dependencies</td>
-</tr>
-<tr>
-<td><code>ios:dev</code></td>
-<td>build .ipa using dev environment vars</td>
-</tr>
-<tr>
-<td><code>ios:release</code></td>
-<td>build .ipa with production environment vars</td>
-</tr>
-<tr>
-<td><code>android:dev</code></td>
-<td>build .apk using dev environment vars</td>
-</tr>
-<tr>
-<td><code>android:devworeload</code></td>
-<td>build .apk using dev environment vars without livereload</td>
-</tr>
-<tr>
-<td><code>android:release</code></td>
-<td>build .apk with production environment vars</td>
-</tr>
-</tbody>
-</table>
-<h3 id="-a-name-gitlab-ci-a-gitlab-ci-configuration"><a name="gitlab-ci"></a>Gitlab CI Configuration</h3>
-<ul>
-<li>To get the automatic .ipa from ionic package first setup a ionic.io profile with certificates for ios. Secondly add the following Secret variables in Gitlab. N.B. Be sure to don&#39;t show Build results (edit project settings) for your repo otherwise those vars could be exposed.</li>
-</ul>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>IONIC_LOGIN_EMAIL</code></td>
-<td>Your ionic.io email</td>
-</tr>
-<tr>
-<td><code>IONIC_LOGIN_PASSWORD</code></td>
-<td>Your ionic.io password</td>
-</tr>
-<tr>
-<td><code>IONIC_PACKAGE_BUILD_RELEASE</code></td>
-<td>(Optional) Indicate whether this is a release build. Possible values are <code>true</code> or <code>false</code>. Defaults to <code>false</code>.</td>
-</tr>
-<tr>
-<td><code>IONIC_PACKAGE_BUILD_PROFILE</code></td>
-<td>Security profile to use for the build, as defined in Ionic.io console.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="-a-name-tips-a-tips"><a name="tips"></a>Tips</h2>
-<h3 id="-a-name-links-a-useful-links"><a name="links"></a>Useful Links</h3>
-<ul>
-<li><a href="http://microsoft.github.io/TypeSearch/">Search engine for find typescript typings</a></li>
-<li><a href="https://dpogue.ca/articles/cordova-xcode8.html">Cordova-xcode 8</a></li>
-<li><a href="https://docs.ionic.io/services/package/">Ionic package setup</a></li>
-<li><a href="https://github.com/driftyco/ionic-package-hooks">Useful Hooks</a></li>
-</ul>
-<h3 id="-a-name-ionic-cordova-a-ionic-cordova"><a name="ionic-cordova"></a>Ionic &amp; Cordova</h3>
-<ul>
-<li>Avoid the use of ionic state commands and also ionic plugin/platform. Use directly cordova prepare (or cordova plugin/platform). Also save your plugin/platform only inside config.xml, not package.json to avoid confusion. See <a href="https://github.com/driftyco/ionic-cli/issues/1324">this</a> for further informations. </li>
-</ul>
-<h3 id="-a-name-webstorm-a-webstorm"><a name="webstorm"></a>Webstorm</h3>
-<ul>
-<li>Set code style for typesript:<ul>
-<li>{import} -&gt; { import }</li>
-<li>import <em> from &quot;lodash&quot; -&gt; import </em> from &#39;lodash&#39;</li>
-</ul>
-</li>
-<li>Set typescript settings to be used with the version inside node_modules instead of the bundled one (1.8)</li>
-<li><a href="https://github.com/driftyco/ionic/issues/8303">Don&#39;t activate typescript compiler.</a></li>
-<li>Enable tslint in settings</li>
-<li>Download scss lint plugin and enable it</li>
-</ul>
-<h3 id="-a-name-docs-a-docs"><a name="docs"></a>Docs</h3>
-<p>To generate docs tsconfig.json has to be appended
-<code>&quot;target&quot;: &quot;es6&quot;</code> instead of <code>&quot;target&quot;: &quot;es5&quot;</code>. Do not forget to change it back afterwards.
-With this typedocs recognizes es6 constructs.</p>
-<h3 id="-a-name-release-a-how-to-release-ios-android-apps"><a name="release"></a>How To release ios/ android apps</h3>
-<p>A complete guide how to publish the app on the appstore / playstore can be found <a href="http://ionicframework.com/docs/v1/guide/publishing.html">here</a></p>
-<h3 id="-a-name-more-a-additional-information"><a name="more"></a>Additional information</h3>
-<ul>
-<li>General<ul>
-<li>If you&#39;re using Ionic 2.x the command &quot;ionic cordova build ...&quot; does not work, use &quot;ionic build ...&quot; instead (without cordova)</li>
-<li>If you encounter any issues during building the project with js-file (&quot;spawn acces&quot;)<ul>
-<li>&quot;chmod +x path-to-js-file&quot;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>use the npm run command (<strong>ios:devworeload</strong> or <strong>android:devworeload</strong>) to deploy a debug version of the app to your connected device (without live reload) </li>
-<li>Android<ul>
-<li>Keytool already exists, do not create a new one. if you want to update the existing app in the playstore</li>
-</ul>
-</li>
-<li>iOS<ul>
-<li>Releasing a new version can take some days due to the reviewing policy of apple</li>
-</ul>
-</li>
-</ul>
+<p>MIT License</p>
+<p>Copyright (c) 2016 Marco Turi</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
 
 
 
